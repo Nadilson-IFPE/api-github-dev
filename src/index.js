@@ -1,14 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+// Alteração para evitar a mensagem no console:
+// Warning: ReactDOM.render is no longer supported in React 18. Use createRoot instead.
+// Until you switch to the new API, your app will behave as if it's running React 17.
+// Learn more: https://reactjs.org/link/switch-to-createroot
+const root = createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change
