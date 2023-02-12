@@ -21,42 +21,49 @@ const RepositoriesPage = () => {
 
   const repositories = [
     {
+      id: '1',
       name: 'Repo 1',
       description: 'Descrição',
       html_url: 'https://www.w3schools.com/js/',
       language: 'JavaScript',
     },
     {
+      id: '2',
       name: 'Repo 2',
       description: 'Descrição',
       html_url: 'https://www.w3schools.com/js/',
       language: 'JavaScript',
     },
     {
+      id: '3',
       name: 'Repo 3',
       description: 'Descrição',
       html_url: 'https://www.docker.com/',
       language: 'Docker',
     },
     {
+      id: '4',
       name: 'Repo 4',
       description: 'Descrição',
       html_url: 'https://nadportfolio.vercel.app/',
       language: null,
     },
     {
+      id: '5',
       name: 'Repo 5',
       description: 'Descrição',
       html_url: 'https://www.typescriptlang.org/',
       language: 'TypeScript',
     },
     {
+      id: '6',
       name: 'Repo 6',
       description: 'Descrição',
       html_url: 'https://www.ruby-lang.org/en/',
       language: 'Ruby',
     },
     {
+      id: '7',
       name: 'Repo 7',
       description: 'Descrição',
       html_url:
@@ -64,12 +71,14 @@ const RepositoriesPage = () => {
       language: 'Java',
     },
     {
+      id: '8',
       name: 'Repo 8',
       description: 'Descrição',
       html_url: 'https://kotlinlang.org/',
       language: 'Kotlin',
     },
     {
+      id: '9',
       name: 'Repo 9',
       description: 'Descrição',
       html_url: 'https://dart.dev/',
@@ -86,7 +95,7 @@ const RepositoriesPage = () => {
         <Filter languages={languages} />
       </Sidebar>
       <Main>
-        <Repositories />
+        <Repositories repositories={repositories} />
       </Main>
     </Container>
   );
