@@ -15,8 +15,8 @@ const Profile = ({ user }) => (
     <Inner>
       <Data>
         <MdGroup size={20} />
-        {user.following}&nbsp;<i>seguidores</i>&nbsp;&middot;&nbsp;
-        {user.followers}&nbsp;<i>seguindo</i>
+        {user.followers}&nbsp;<i>seguidores</i>&nbsp;&middot;&nbsp;
+        {user.following}&nbsp;<i>seguindo</i>
       </Data>
       {user.company && (
         <Data>
