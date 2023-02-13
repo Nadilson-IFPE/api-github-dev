@@ -1,16 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Container, Sidebar, Main } from './styles';
+import { Loading, Container, Sidebar, Main } from './styles';
 import Profile from './Profile';
 import Filter from './Filter';
 import Repositories from './Repositories';
 
-import { getLangsFrom } from '../../services/api';
+import { getLangsFrom, getUser } from '../../services/api';
 
 const RepositoriesPage = () => {
+  const [user, setUser] = useState();
   const [currentLanguage, setCurrentLanguage] = useState();
+  const [loading, setLoading] = useState(true);
 
-  const user = {
+  useEffect(() => {
+    const loadData = async () => {
+      const [userResponse] = await Promise.all([getUser('Nadilson-IFPE')]);
+
+      setUser(userResponse.data);
+
+      setLoading(false);
+    };
+
+    loadData();
+  }, []);
+
+  /* const user = {
     login: 'Nadilson-IFPE',
     name: 'Nadilson',
     avatar_url: 'https://avatars.githubusercontent.com/u/11899797?v=4',
@@ -19,7 +33,7 @@ const RepositoriesPage = () => {
     company: '[DESEMPREGADO]',
     blog: 'https://nadportfolio.vercel.app/',
     location: 'Recife - Pernambuco',
-  };
+  }; */
 
   const repositories = [
     {
@@ -93,6 +107,10 @@ const RepositoriesPage = () => {
   const onFilterClick = (language) => {
     setCurrentLanguage(language);
   };
+
+  if (loading) {
+    return <Loading>Carregando...</Loading>;
+  }
 
   return (
     <Container>
